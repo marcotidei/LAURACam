@@ -58,6 +58,21 @@ Tested and optimized for:
 
 ---
 
+## Suggested 3D-Printable Cases
+
+Here are some recommended enclosures to protect your L.A.U.R.A. Cam hardware:
+
+- **Remote (Heltec LoRa 32 V3 – Slim Form Factor)**  
+  [HT Slim Case on Printables.com](https://www.printables.com/model/936437-heltec-lora-32-v3-ht-slim-cases)
+
+- **Controller – Using Heltec LoRa 32 V3 (Pocket Layout)**  
+  [HT Pocket Case on Printables.com](https://www.printables.com/model/920722-heltec-lora-32-v3-ht-pocket-case)
+
+- **Controller – Using Heltec Wireless Stick V3**  
+  [Wireless Stick Lite V3 Case on Printables.com](https://www.printables.com/model/572273-heltec-wireless-stick-lite-v3-case/files)
+
+---
+
 ## Performance Tips
 
 To improve memory usage and execution speed on MicroPython:
