@@ -73,6 +73,29 @@ Here are some recommended enclosures to protect your L.A.U.R.A. Cam hardware:
 
 ---
 
+### ⚠️ Note on Display Configuration
+
+The **Wireless Stick V3** and the **LoRa 32 V3** have the same hardware features,  
+**except for the OLED display**, which is **twice as large** on the LoRa 32 V3.
+
+To ensure correct display behavior, set the pixel size in `config.py` based on your board:
+
+#### Heltec LoRa 32 V3
+
+```python
+OLED_WIDTH = 128
+OLED_HEIGHT = 64
+```
+
+#### Heltec Wireless Stick V3
+
+```python
+OLED_WIDTH = 64
+OLED_HEIGHT = 32
+```
+
+---
+
 ## Performance Tips
 
 To improve memory usage and execution speed on MicroPython:
