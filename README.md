@@ -104,6 +104,8 @@ To improve memory usage and execution speed on MicroPython:
 
 ### Planned Improvements
 
-- Configuration menu for the Controller  
-- Adjustable heartbeat interval  
-- Remote access to check camera settings
+- Improve LoRa communication
+- Add battery management for GoPro and Controller battery
+- Configuration menu for the Controller
+- Adjustable heartbeat interval
+- Remote check of camera settings
