@@ -31,7 +31,7 @@ The status of each camera is shown on the Remote’s screen, including signal st
 
 ### Multi-Device Support
 
-Control multiple cameras with unique IDs and receive independent feedback from each.
+Control up to 3 cameras with unique IDs and receive independent feedback from each.
 
 ---
 
