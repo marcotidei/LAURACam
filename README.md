@@ -73,7 +73,7 @@ Here are some recommended enclosures to protect your L.A.U.R.A. Cam hardware:
 
 ---
 
-### ⚠️ Note on Display Configuration
+### Note on Display Configuration
 
 The **Wireless Stick V3** and the **LoRa 32 V3** have the same hardware features,  
 **except for the OLED display**, which is **twice as large** on the LoRa 32 V3.
