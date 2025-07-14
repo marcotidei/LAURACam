@@ -24,7 +24,8 @@ The Controller uses BLE to wake up the GoPro, send commands, and query the curre
 
 Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features to minimize power draw.  
 The system can also send BLE wake signals to GoPros in power-save mode — ideal when remote cameras are sleeping to conserve battery and reduce the risk of overheating.
-At the moment, the controller assumes to be powered by an external power bank. A future update will add battery management similar to the remote to the controller.
+
+At the moment, the controller assumes to be powered by an external source like a power bank. A future update to the Controller will add battery management similar to the one already implemented for the Remote.
 
 ### Remote OLED Display
 
