@@ -52,13 +52,13 @@ Send BLE wake signals to GoPros in power-save mode — ideal when remote cameras
 
 Tested and optimized for:
 
-✅ Heltec Wireless Stick V3 (Controller)  
-✅ Heltec LoRa 32 V3 (Remote)  
-✅ GoPro cameras compatible with the OpenGoPro API
+Heltec Wireless Stick V3 (Controller)  
+Heltec LoRa 32 V3 (Remote)  
+GoPro cameras compatible with the OpenGoPro API
 
 ---
 
-## ⚙️ Performance Tips
+## Performance Tips
 
 To improve memory usage and execution speed on MicroPython:
 
@@ -83,6 +83,7 @@ This is especially recommended for MicroPython on ESP32 boards with limited RAM.
 
 ### Planned Improvements
 
-🔋 Enhanced power management (deep sleep cycles)  
-📊 Expanded status reporting (battery, temperature, etc.)  
-🔄 Simplified configuration for presets and camera groups
+- Configuration menu for the Controller  
+- Adjustable heartbeat interval  
+- Remote access to check camera settings
+
