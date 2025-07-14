@@ -2,47 +2,41 @@ L.A.U.R.A. Cam
 
 LoRa-powered Action camera Ultra-long distance Remote Actuator
 
-L.A.U.R.A. Cam is a remote control system designed to trigger GoPro camera recording from long distances using LoRa communication. It's ideal for creative projects where remote placement, rugged terrain, or off-grid locations make traditional control methods unreliable.
+L.A.U.R.A. Cam is a remote control system designed to trigger GoPro camera recording from long distances using LoRa communication. It's not desined to replace the GoPro App entierly (it doesn't allow to see a preview neither change settings for now) but to overcome the distance limitations imposed by the BLE protocol in thoese situations where is not safe or possible to stay close to the GoPro when the anction starts.
 
-🎯 Project Goal
-  Enable ultra-long-distance triggering of one or more GoPro cameras using LoRa, with real-time confirmation of actual recording status.
-  The system is built around two roles:
+System Overview
+  The system is built around two devices:
 
-  🟦 Controller – Communicates with the GoPro via BLE, receives LoRa trigger/wake-up commands, and sends back status updates
+  Controller – Communicates with the GoPro via BLE, receives LoRa trigger/wake-up commands, and sends back status updates
 
-  🟨 Remote – The physical remote control used to send triggers, request status updates, and wake up cameras from standby over LoRa
+  Remote – The physical remote control used to send triggers, request status updates, and wake up cameras from standby over LoRa
 
   This design allows users to control cameras far beyond the typical BLE/WiFi range, while still ensuring recording confirmation and camera feedback.
 
-✨ Key Features
-📡 LoRa Triggering
-Trigger start/stop recording reliably across long distances — well beyond BLE or WiFi coverage.
-
-🔵 BLE Camera Control
+BLE Camera Control
 The Controller uses BLE to wake up the GoPro, send commands, and query current recording state.
 
-🔋 Low Power Architecture
-Optimized for Heltec LoRa (ESP32) boards, supporting sleep modes and minimal power draw.
+Low Power Architecture
+Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features for minimal power draw.
 
-🖥️ Remote OLED Display
+Remote OLED Display
 Status of each camera is shown on the Remote’s screen: signal, recording, alerts, and health indicators.
 
-🎚️ Multi-device Support
+Multi-device Support
 Control multiple cameras with unique IDs and get independent feedback from each.
 
-✅ GoPro Wake-Up
+GoPro Wake-Up
 Send BLE wake signals to GoPros in power-save mode — useful when remote cameras are in sleep to conserve battery.
 
-🧰 Hardware Compatibility
+Hardware Compatibility
+
 Tested and optimized for:
 
-✅ Heltec Wireless Stick V3
+✅ Heltec Wireless Stick V3 for the Controller
 
-✅ Heltec LoRa 32 V3
+✅ Heltec LoRa 32 V3 for the Remote
 
-✅ GoPro cameras with BLE + WiFi control capabilities
-
-✅ 128x64 I2C OLED displays (SSD1306)
+✅ GoPro cameras compattible with OpenGoPro API
 
 ⚙️ Performance Tips
 To improve memory usage and execution speed on MicroPython:
@@ -53,7 +47,8 @@ Upload the .mpy files to your device
 
 This is especially recommended for MicroPython on ESP32 boards with limited RAM.
 
-🚧 Project Status
+Project Status
+
 Work in Progress – Core functionality is stable and actively tested
 
 Current capabilities:
