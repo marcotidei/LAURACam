@@ -5,11 +5,9 @@ L.A.U.R.A. Cam is a remote control system designed to trigger GoPro camera recor
 
 🎯 Project Goal
 Enable ultra-long-distance triggering of one or more GoPro cameras using LoRa, with real-time confirmation of actual recording status.
-
 The system is built around two roles:
 
 🟦 Controller – Communicates with the GoPro via BLE, receives LoRa trigger/wake-up commands, and sends back status updates
-
 🟨 Remote – The physical remote control used to send triggers, request status updates, and wake up cameras from standby over LoRa
 
 This design allows users to control cameras far beyond the typical BLE/WiFi range, while still ensuring recording confirmation and camera feedback.
