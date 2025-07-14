@@ -16,26 +16,18 @@ The system is built around two devices:
 
 This design allows users to control cameras far beyond the typical BLE/Wi-Fi range, while still ensuring recording confirmation and camera feedback.
 
----
-
 ### BLE Camera Control
 
 The Controller uses BLE to wake up the GoPro, send commands, and query the current recording state — all wirelessly!
-
----
 
 ### Low Power Architecture
 
 Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features to minimize power draw.  
 The system can also send BLE wake signals to GoPros in power-save mode — ideal when remote cameras are sleeping to conserve battery and reduce the risk of overheating.
 
----
-
 ### Remote OLED Display
 
 The status of each camera is shown on the Remote’s screen, including signal strength, recording status, alerts, and health indicators.
-
----
 
 ### Multi-Device Support
 
