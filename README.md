@@ -24,6 +24,7 @@ The Controller uses BLE to wake up the GoPro, send commands, and query the curre
 
 Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features to minimize power draw.  
 The system can also send BLE wake signals to GoPros in power-save mode — ideal when remote cameras are sleeping to conserve battery and reduce the risk of overheating.
+At the moment, the controller assumes to be powered by an external power bank. A future update will add battery management similar to the remote to the controller.
 
 ### Remote OLED Display
 
@@ -63,7 +64,7 @@ Here are some recommended enclosures to protect your L.A.U.R.A. Cam hardware:
 The **Wireless Stick V3** and the **LoRa 32 V3** have the same hardware features,  
 **except for the OLED display**, which is **twice as large** on the LoRa 32 V3.
 
-To ensure correct display behavior, set the pixel size in `config.py` based on your board:
+To ensure correct display behavior, set the pixel count in `config.py` based on your board:
 
 #### Heltec LoRa 32 V3
 
