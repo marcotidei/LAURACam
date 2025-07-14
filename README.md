@@ -96,11 +96,11 @@ To improve memory usage and execution speed on MicroPython:
 
 ### Current Capabilities
 
-✔️ Reliable long-range recording triggers  
-✔️ BLE camera wake-up  
-✔️ Real-time recording feedback  
-✔️ Multi-camera support  
-✔️ Health feedback based on overheating and low temperature detection
+-  Reliable long-range recording triggers  
+-  BLE camera wake-up  
+-  Real-time recording feedback  
+-  Multi-camera support  
+-  Health feedback based on overheating and low temperature detection
 
 ### Planned Improvements
 
