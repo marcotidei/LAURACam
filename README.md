@@ -65,8 +65,6 @@ To improve memory usage and execution speed on MicroPython:
 - Compile all `.py` modules into `.mpy` using **mpy-cross**
 - Upload the compiled `.mpy` files to your device
 
-This is especially recommended for MicroPython on ESP32 boards with limited RAM.
-
 ---
 
 ## Project Status
@@ -79,7 +77,7 @@ This is especially recommended for MicroPython on ESP32 boards with limited RAM.
 ✔️ BLE camera wake-up  
 ✔️ Real-time recording feedback  
 ✔️ Multi-camera support  
-✔️ OLED-based UI with blinking device indicators and connection health
+✔️ Detection of overheating and cold temp for health feedback
 
 ### Planned Improvements
 
