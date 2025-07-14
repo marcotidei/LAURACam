@@ -1,6 +1,6 @@
 # L.A.U.R.A. Cam
 
-## LoRa-powered Action camera Ultra-long distance Remote Actuator
+## LoRa-powered Action-camera Ultra-long-distance Remote Actuator
 
 **L.A.U.R.A. Cam** is a remote control system designed to trigger GoPro camera recording from long distances using LoRa communication.  
 It is not designed to replace the GoPro App entirely (it does not support live preview or setting changes yet), but to overcome the distance limitations imposed by the BLE protocol—particularly in situations where it is not safe or possible to stay close to the GoPro when the action starts.
