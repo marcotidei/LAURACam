@@ -26,7 +26,8 @@ The Controller uses BLE to wake up the GoPro, send commands, and query the curre
 
 ## Low Power Architecture
 
-Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features for minimal power draw.
+Optimized for Heltec LoRa (ESP32) boards, supporting sleep mode and wake-up features to minimize power draw.  
+The system can also send BLE wake signals to GoPros in power-save mode — ideal when remote cameras are sleeping to conserve battery and reduce the risk of overheating.
 
 ---
 
@@ -39,12 +40,6 @@ The status of each camera is shown on the Remote’s screen, including signal st
 ## Multi-Device Support
 
 Control multiple cameras with unique IDs and receive independent feedback from each.
-
----
-
-## GoPro Wake-Up
-
-Send BLE wake signals to GoPros in power-save mode — ideal when remote cameras are sleeping to conserve battery.
 
 ---
 
