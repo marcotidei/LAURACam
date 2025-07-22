@@ -111,3 +111,7 @@ To improve memory usage and execution speed on MicroPython:
 - Configuration menu for the Controller
 - Adjustable heartbeat interval
 - Remote check of camera settings
+
+## 🙏 Acknowledgements
+
+Special thanks to [@username](https://github.com/KonradIT) and his project on goprowifihack [project-name](https://github.com/KonradIT/goprowifihack) for the foundational work and inspiration behind this project.
