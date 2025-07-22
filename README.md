@@ -112,6 +112,43 @@ To improve memory usage and execution speed on MicroPython:
 - Adjustable heartbeat interval
 - Remote check of camera settings
 
+## Installation Instructions
+
+### Recommended Setup via Thonny
+
+We suggest using [Thonny IDE](https://thonny.org/) to install MicroPython and manage libraries. This setup has been tested on **MicroPython versions 1.24, 1.25, and the 1.26 preview**.
+
+#### Installing MicroPython on Your Board
+
+1. Connect your ESP32 board via USB.
+2. Open Thonny and navigate to `Tools → Options → Interpreter`.
+3. Select your device and click **"Install or update firmware"**.
+4. Choose one of the supported MicroPython versions and complete the installation.
+
+### Required Libraries
+
+#### For Both Controller and Remote:
+
+- `micropython/lora`
+- `micropython/drivers/display/ssd1306`
+
+#### For the Controller Only:
+
+- `micropython/bluetooth/aioble`
+
+These can be installed from within Thonny using the **Manage Packages** tool, or manually by placing the `.py` files into the `lib/` directory on your board.
+
+### Recommended: Compile Libraries for Performance
+
+While using `.py` source files is convenient during development, we **strongly recommend compiling your libraries** into `.mpy` files for:
+
+- Faster execution  
+- Lower memory usage  
+- Increased stability on constrained devices
+
+For details on compiling libraries using `mpy-cross`, refer to the official MicroPython documentation or follow the step-by-step instructions here:  
+**[How to Compile .py to .mpy →](https://docs.micropython.org/en/latest/reference/mpyfiles.html)**  
+
 ## 🙏 Acknowledgements
 
 Special thanks to [@KonradIT](https://github.com/KonradIT) and his project [goprowifihack](https://github.com/KonradIT/goprowifihack) for the foundational work and inspiration behind this project.
