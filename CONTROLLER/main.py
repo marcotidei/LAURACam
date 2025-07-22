@@ -25,6 +25,7 @@ camera_status = {
     "system_hot": False,
     "low_temp": False,
     "camera_on": True,
+    "internal_battery_percentage": 0,
 }
 
 # LoRa Commands
@@ -133,6 +134,7 @@ async def periodic_heartbeat_sender():
         camera_status["system_hot"] (bool): True if the camera is overheating.
         camera_status["low_temp"] (bool): True if the camera is in low temperature condition.
         camera_status["recording"] (bool): Indicates if the camera is currently recording.
+        camera_status["internal_battery_percentage"] (int): Indicates the charge percentage of the GoPro battery
 
     Notes:
         - Uses `config.STATUS_QUERY_INTERVAL` as the interval between messages.
@@ -147,30 +149,33 @@ async def periodic_heartbeat_sender():
         recording = int(camera_status["recording"]) if camera_status["camera_on"] else 0
 
         payload = bytearray([
-            msg_type,							# Heartbeat message type
-            int(camera_status["camera_on"]),	# camera_connected (example)
-            0,									# battery_level (or add if you have)
-            int(camera_status["camera_on"]),	# sleep_mode placeholder
-            hot,								# overheating
-            cold,								# low_temperature
-            0,									# flatmode placeholder
-            0,									# preset_group placeholder
-            0,									# video_preset placeholder
-            0,									# framerate placeholder
-            0,  								# resolution placeholder
-            recording							# recording
+            msg_type,											# Heartbeat message type
+            int(camera_status["camera_on"]),					# camera_connected
+            int(camera_status["internal_battery_percentage"]),	# GoPro battery_level
+            int(camera_status["camera_on"]),					# sleep_mode
+            hot,												# overheating
+            cold,												# low_temperature
+            0,													# flatmode
+            0,													# preset_group
+            0,													# video_preset
+            0,													# framerate
+            0,  												# resolution
+            recording											# recording
         ])
 
         recording_icon = "🔴" if camera_status["recording"] else "⚪"
         hot_icon = "🔥" if camera_status["system_hot"] else "✅"
         cold_icon = "❄️" if camera_status["low_temp"] else "✅"
         power_icon = "✅" if camera_status["camera_on"] else "💤"
+        battery_pct = camera_status["internal_battery_percentage"]
+        battery_icon = "🟥" if battery_pct <= 20 else "🟨" if battery_pct <= 50 else "🟩"
 
         print_info(
             f"[Heartbeat] {power_icon} CAMERA: {'On' if camera_status['camera_on'] else 'Off'} | "
-            f"{hot_icon} HOT: {'Yes' if hot else 'No'} | "
-            f"{cold_icon} COLD: {'Yes' if cold else 'No'} | "
-            f"{recording_icon} RECORDING: {'Yes' if recording else 'No'}"
+            f"{hot_icon} HOT: {'Yes' if camera_status['system_hot'] else 'No'} | "
+            f"{cold_icon} COLD: {'Yes' if camera_status['low_temp'] else 'No'} | "
+            f"{recording_icon} RECORDING: {'Yes' if camera_status['recording'] else 'No'} | "
+            f"🔋 BATTERY: {battery_icon} {battery_pct}%"
         )
         
         # Add randorm delay to avoir LoRa Collistions
@@ -249,8 +254,8 @@ async def periodic_query_request():
     """
     while True:
         if camera_status["camera_on"]:
-            await ble.send_query_request(b'\x05\x13\x0a\x55\x06')
-            #await ble.send_query_request(b'\x09\x13\x0a\x55\x06\x02\x01\x46\x27')
+            # await ble.send_query_request(b'\x05\x13\x0a\x55\x06')
+            await ble.send_query_request(b'\x09\x13\x0a\x55\x06\x02\x01\x46\x27')
             await asyncio.sleep(config.STATUS_QUERY_INTERVAL)
         else:
             print_debug("Camera is off, waiting...")
@@ -346,6 +351,7 @@ async def ble_notification_data_handler(event_type, data):
         camera_status["recording"] (bool): Updated based on query responses.
         camera_status["system_hot"] (bool): Updated based on query responses.
         camera_status["low_temp"] (bool): Updated based on query responses.
+        camera_status["internal_battery_percentage"] (int): Updated based on query responses.
     """
     print_info(f"Received event {event_type} with data: {data}")
 
@@ -354,6 +360,7 @@ async def ble_notification_data_handler(event_type, data):
         camera_status["recording"] = data.get("recording_status", camera_status["recording"])
         camera_status["system_hot"] = data.get("system_hot", camera_status["system_hot"])
         camera_status["low_temp"] = data.get("low_temp", camera_status["low_temp"])
+        camera_status["internal_battery_percentage"] = data.get("internal_battery_percentage", camera_status["internal_battery_percentage"])
     elif event_type == "command_response":
         pass
  
