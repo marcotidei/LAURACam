@@ -147,7 +147,7 @@ While using `.py` source files is convenient during development, we **strongly r
 - Increased stability on constrained devices
 
 For details on compiling libraries using `mpy-cross`, refer to the official MicroPython documentation or follow the step-by-step instructions here:  
-**[How to Compile .py to .mpy →](https://docs.micropython.org/en/latest/reference/mpyfiles.html)**  
+**[How to Compile .py to .mpy →](https://github.com/micropython/micropython/blob/master/mpy-cross/README.md)**  
 
 ## 🙏 Acknowledgements
 
