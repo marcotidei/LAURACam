@@ -150,15 +150,18 @@ class ResponseAccumulator:
             - First byte indicates header type or continuation and sequence number.
             - Resets if sequence numbers mismatch or packet is malformed.
         """
-        print_debug(f"[DEBUG] Accumulator received packet: {data.hex()}")
+        print_debug(f"[BLE] Accumulator received packet: {data.hex()}")
         
         if not data:
             print_warning("[BLE] Empty packet received, ignoring.")
             return
 
         first_byte = data[0]
+        first_byte_bin = f"{first_byte:08b}"
         is_continuation = (first_byte & 0x80) != 0
         seq_num = first_byte & 0x7F  # Lower 7 bits = sequence number
+        
+        print_debug(f"[BLE] First byte: 0x{first_byte:02X} (binary: {first_byte_bin})")
 
         if not is_continuation:
             # New message start packet
@@ -191,7 +194,7 @@ class ResponseAccumulator:
             self.expected_seq = 0  # Expect next continuation packet to have seq=0
             self.receiving = True
             
-            print_debug(f"[DEBUG] Accumulator buffer length: {len(self.buffer)} / expected {self.expected_length}")
+            print_debug(f"[BLE] Accumulator buffer length: {len(self.buffer)} / expected {self.expected_length}")
 
         else:
             # Continuation packet - verify sequence number
@@ -211,7 +214,7 @@ class ResponseAccumulator:
             self.buffer.extend(data[1:])
             self.expected_seq += 1
             
-            print_debug(f"[DEBUG] Accumulator buffer length: {len(self.buffer)} / expected {self.expected_length}")
+            print_debug(f"[BLE] Accumulator buffer length: {len(self.buffer)} / expected {self.expected_length}")
 
 def get_accumulator(uuid):
     """
@@ -357,14 +360,14 @@ async def handle_query_response(char_uuid, data):
         - Logs unknown status IDs.
         - Notifies registered callbacks.
     """
-    print_debug(f"[DEBUG] Reassembled data received in handle_query_response: {data.hex()}")
+    print_debug(f"[BLE] Reassembled data received in handle_query_response: {data.hex()}")
     statuses = {}
 
     if len(data) < 5:
         print_error(f"[BLE] Incomplete query response: {data.hex()}")
         return statuses
 
-    index = 4
+    index = 2
 
     while index + 2 <= len(data):
         try:
