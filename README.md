@@ -114,4 +114,4 @@ To improve memory usage and execution speed on MicroPython:
 
 ## 🙏 Acknowledgements
 
-Special thanks to [@KonradIT](https://github.com/KonradIT) and his project on goprowifihack [goprowifihack](https://github.com/KonradIT/goprowifihack) for the foundational work and inspiration behind this project.
+Special thanks to [@KonradIT](https://github.com/KonradIT) and his project [goprowifihack](https://github.com/KonradIT/goprowifihack) for the foundational work and inspiration behind this project.
