@@ -112,6 +112,8 @@ To improve memory usage and execution speed on MicroPython:
 - Adjustable heartbeat interval
 - Remote check of camera settings
 
+---
+
 ## Installation Instructions
 
 ### Recommended Setup via Thonny
