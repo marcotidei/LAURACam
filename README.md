@@ -149,6 +149,6 @@ While using `.py` source files is convenient during development, we **strongly r
 For details on compiling libraries using `mpy-cross`, refer to the official MicroPython documentation or follow the step-by-step instructions here:  
 **[How to Compile .py to .mpy →](https://github.com/micropython/micropython/blob/master/mpy-cross/README.md)**  
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Special thanks to [@KonradIT](https://github.com/KonradIT) and his project [goprowifihack](https://github.com/KonradIT/goprowifihack) for the foundational work and inspiration behind this project.
